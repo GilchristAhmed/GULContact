@@ -26,7 +26,7 @@ export class DetailContactComponent implements  OnInit {
     console.log(this.contactId);
     this.loadContact();
   }
-
+//charger les données du contact
   loadContact(): void {
     this.contactService.getContactById(this.contactId, this.token).subscribe({
       next: (res:Contact) => {
@@ -38,11 +38,12 @@ export class DetailContactComponent implements  OnInit {
     });
   }
 
+  //suppression de contact avec confirmation
   suppr() {
 
     if (confirm('Êtes-vous sûr de vouloir supprimer ce contact ?')) {
       this.contactService.deleteContact(this.contactId,this.token).subscribe(() => {
-        this.router.navigateByUrl('dashboard'); // Recharger la liste des contacts après suppression
+        this.router.navigateByUrl('dashboard');
       });
     }
   }

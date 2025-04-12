@@ -1,5 +1,6 @@
 <div class="section">
   <div class="header">
+    <!-- Recherche -->
     <div class="search-container">
 
       <form [formGroup]="searchForm">
@@ -11,13 +12,14 @@
     <button class="add-button" (click)="AddContact()" >Ajouter Contact</button>
   </div>
 
+  <!-- Liste de contacts -->
   <div class="liste">
     @for ( contact of contacts; track contact.first_name){
       <app-card-contact [contact]="contact"/>
     }
   </div>
 
-<!-- Ajout des boutons de pagination -->
+<!-- Pagination -->
   <div class="pagination">
     <button class="pagination-button" (click)="previousPage()">Page Précédente</button>
     <p>  {{ currentPage }}   </p>

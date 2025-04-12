@@ -23,9 +23,9 @@ export class FormcontactComponent implements OnInit {
   contactId: number | null = null;
   isEditMode = false;
 
-
+  //recuperer le token
   token = localStorage.getItem('token') || '';
-
+  //recuperer le userID
   user_id : number = Number(localStorage.getItem('id'));
 
   contactForm: FormGroup;
@@ -35,12 +35,11 @@ export class FormcontactComponent implements OnInit {
               private fb: FormBuilder,
               private contactService: ContactService) {
     this.contactForm = this.fb.group({
-      //user_id: [this.user_id]// Valeur par défaut
       first_name: ['', Validators.required],
       last_name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', Validators.required],
-      photo: [''], // Vous pouvez ajouter une validation pour l'URL si nécessaire
+      photo: [''],
     });
 
   }
@@ -57,27 +56,27 @@ export class FormcontactComponent implements OnInit {
       }
     });
   }
-
+  //methode pour le bouton submit
   onSubmit(): void {
+    //integration de l'ID utilisateur au formulaire de contact
     if (this.contactForm.invalid) return;
-
-    const user = JSON.parse(localStorage.getItem('user') || '{}');
-    const userId = user?.id;
 
     const contactData = {
       ...this.contactForm.value,
-      user_id: userId
+      user_id: this.user_id
     };
 
     if (this.isEditMode && this.contactId) {
+      //pour la modification d'un contact
       this.contactService.updateContact(this.contactId, contactData,this.token).subscribe(() => {
         this.router.navigate(['/dashboard']);
       });
     } else {
+      //Pour l'ajout d'un nouveau contact
       this.contactService.addContact(contactData,this.token).subscribe(() => {
         this.router.navigate(['/dashboard']);
       });
     }
   }
-  
+
 }

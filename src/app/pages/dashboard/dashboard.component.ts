@@ -65,7 +65,7 @@ export class DashboardComponent implements OnInit {
 
 
   previousPage() {
-    if (this.currentPage > 1) { // Vérifiez si nous ne sommes pas déjà à la première page
+    if (this.currentPage > 1) { // Vérifier si nous ne sommes pas déjà à la première page
       this.currentPage--; // Décremente la page actuelle
       this.fetchData(); // Appel à l'API pour récupérer les données de la page
     }
