@@ -42,9 +42,8 @@ export class ContactService {
   }
 
 //rechercher un contact
-  searchContacts(query: string, token: string): Observable<any> {
-    const params = new HttpParams().set('page', 1).set('search', query);
-    return this.http.get<any>(`${this.apiUrl}?${params}`, this.getHeader(token));
+  searchContacts(query: string, token: string): Observable<{ data: Contact[] }> {
+    return this.http.get<{ data: Contact[] }>(`${this.apiUrl}?search=${query}`, this.getHeader(token));
   }
 //Selection un contact en fontion de son ID
   getContactById(id: number,token: string): Observable<Contact> {

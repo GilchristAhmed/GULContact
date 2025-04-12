@@ -79,14 +79,15 @@ export class DashboardComponent implements OnInit {
 
    onSearch(searchTerm: string) {
        searchTerm = this.searchForm.value;
-      this.contactService.searchContacts(searchTerm,this.token).subscribe({
-        next: (res) => {
-          this.contacts = res.data;
+      this.contactService.searchContacts(searchTerm,this.token).subscribe(
+        data => {
+          console.log('Données récupérées:', data);
+          this.contacts = data.data; // Mettez à jour cette ligne pour que les contacts affichés soient ceux de la page actuelle
         },
-        error: (err) => {
-          console.error('Erreur lors du chargement des contacts', err);
+        error => {
+          console.error('Erreur lors de la récupération des données:', error);
         }
-      })
+      );
     }
 
 
