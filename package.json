@@ -4,9 +4,14 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "npm run build:vite && npm run build:ng",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build:vite": "vite build",
+    "serve:vite": "vite serve",
+    "build:ng": "ng build",
+    "serve:ng": "ng serve",
+    "serve": "npm run serve:vite"
   },
   "private": true,
   "dependencies": {
@@ -33,6 +38,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.7.2"
+    "typescript": "~5.7.2",
+    "vite": "^6.2.6"
   }
 }
