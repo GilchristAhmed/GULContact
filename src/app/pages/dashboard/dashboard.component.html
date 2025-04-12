@@ -1,0 +1,27 @@
+<div class="section">
+  <div class="header">
+    <div class="search-container">
+
+      <form [formGroup]="searchForm">
+        <input type="text" placeholder="Recherchez..." class="search-bar" formControlName="search">
+        <button class="search-button" (click)="onSearch(searchForm.get('search')?.value)">Rechercher</button>
+      </form>
+
+    </div>
+    <button class="add-button" (click)="AddContact()" >Ajouter Contact</button>
+  </div>
+
+  <div class="liste">
+    @for ( contact of contacts; track contact.first_name){
+      <app-card-contact [contact]="contact"/>
+    }
+  </div>
+
+<!-- Ajout des boutons de pagination -->
+  <div class="pagination">
+    <button class="pagination-button" (click)="previousPage()">Page Précédente</button>
+    <p>  {{ currentPage }}   </p>
+    <button class="pagination-button" (click)="nextPage()">Page Suivante</button>
+  </div>
+
+</div>

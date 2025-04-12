@@ -1,0 +1,73 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between; /* Places search and buttons at ends */
+  align-items: center;
+  width: 100%;
+  max-width: 800px; /* Maintain consistent width */
+  margin-bottom: 20px; /* Space below the header */
+}
+
+.search-container {
+  display: flex; /* Align items in row */
+  align-items: center; /* Center items vertically */
+}
+
+.search-bar {
+  width: 100%; /* Take available space */
+  padding: 10px; /* Padding for the search bar */
+  border-radius: 25px; /* Rounded corners */
+  border: 1px solid #ccc; /* Light border */
+  max-width: 200px; /* Set a max width to avoid overflowing */
+}
+
+.search-button {
+  margin-left: 10px; /* Space between search bar and button */
+  padding: 10px; /* Padding for the button */
+  border-radius: 25px; /* Rounded corners */
+}
+
+.add-button {
+  margin-left: 20px; /* Space between buttons */
+  padding: 10px; /* Padding for the button */
+  border-radius: 25px; /* Rounded corners */
+}
+
+.liste {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px; /* Space between items */
+  justify-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center; /* Centre les boutons horizontalement */
+  margin-top: 20px; /* Espace au-dessus des boutons */
+}
+
+.pagination-button {
+  padding: 10px 20px; /* Padding pour les boutons */
+  border-radius: 25px; /* Coins arrondis */
+  border: none; /* Retire la bordure par défaut */
+  background-color: var(--primary); /* Couleur de fond */
+  color: white; /* Couleur du texte */
+  cursor: pointer; /* Curseur en forme de main au survol */
+  margin: 0 10px; /* Espace entre les boutons */
+  transition: background-color 0.3s; /* Transition pour l'effet de survol */
+}
+
+.pagination-button:hover {
+  background-color: var(--secondary); /* Couleur au survol */
+}

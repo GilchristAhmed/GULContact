@@ -1,5 +1,36 @@
+:root{
+  --primary:  #6c63ff;
+  --secondary:  #ff6584;
+  --texte: #333;
+
+}
+
 body{
   background-color: #f5f7fa;
   color: #333;
+  font-family: Montserrat, serif;
 
 }/* You can add global styles to this file, and also import other style files */
+
+button {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--secondary);
+  }
+
+  &:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+}
+
+section{
+  min-height: 80vh;
+}

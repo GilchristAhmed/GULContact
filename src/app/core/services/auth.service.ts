@@ -6,6 +6,7 @@ import { catchError, tap } from 'rxjs/operators';
 interface AuthResponse {
   user: {
     token: string;
+    id:number;
   };
   // ... autres propriétés de la réponse
 }
@@ -25,12 +26,28 @@ export class AuthService {
           console.log("Réponse API: ", response);
           if (response.user.token) {
             localStorage.setItem("token", response.user.token);
+            localStorage.setItem("id", String(response.user.id));
             console.log("Token enregistré", response.user.token);
           }
         }),
         catchError(this.handleError) // Gestion des erreurs
       );
   }
+
+  logout(): void {
+    // Supprimer le token et l'ID de l'utilisateur du localStorage
+    localStorage.removeItem("token");
+    localStorage.removeItem("id");
+    console.log("Utilisateur déconnecté");
+  }
+
+  isLoggedIn(): boolean {
+    if (typeof window !== 'undefined' && localStorage.getItem('token')) {
+      return true;
+    }
+    return false;
+  }
+
 
   private handleError(error: HttpErrorResponse) {
     console.error("Erreur de connexion", error);

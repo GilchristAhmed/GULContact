@@ -1,0 +1,41 @@
+.login-container {
+  max-width: 300px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+
+  h2 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-weight: inherit;
+      margin-top: 10px;
+    }
+
+    input {
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .error {
+      color: var(--secondary);
+      font-size: 12px;
+    }
+
+
+    .error-message {
+      color: var(--secondary);
+      margin-top: 10px;
+    }
+  }
+}

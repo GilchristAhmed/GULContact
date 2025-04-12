@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../core/services/auth.service';
 import { NgIf } from '@angular/common';
 
 // Définir une interface pour la réponse de l'API
 interface AuthResponse {
   user: {
     token: string;
+    id: number;
   };
   // ... autres propriétés de la réponse
 }
@@ -50,7 +51,9 @@ export class LoginComponent {
 
         if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
           localStorage.setItem("token", authResponse.user.token);
+          localStorage.setItem("user_id", String(authResponse.user.id));
           console.log("Token enregistré ", authResponse.user.token);
+          console.log("id enregistré ", authResponse.user.id);
         } else {
           console.error("Le localStorage n'est pas disponible");
         }

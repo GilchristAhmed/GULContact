@@ -1,0 +1,20 @@
+<header>
+  <div class="Titre">
+    <h1 [routerLink]="['dashboard']">CONTACT APP</h1>
+
+
+  </div>
+  <div class="raw">
+    <div class="md-6 left">
+
+      <p>Bonjour,</p>
+    </div>
+    @if (isAuthenticated()){
+      <div class="md-6 right">
+        <nav [routerLink]="['dashboard']">Dashboard</nav>
+        <nav class="deco" (click)="logOut()">LogOut</nav>
+      </div>
+    }
+  </div>
+
+</header>

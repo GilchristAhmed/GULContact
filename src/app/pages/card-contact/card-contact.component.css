@@ -1,12 +1,13 @@
 .card-contact {
   width: 11rem;
   border-radius: 20px;
-  padding: 2px;
+  padding: 1px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   img{
     border-radius: 50%;
   }
-li{
-  list-style: none;
 }
+
+.card-contact:hover {
+  box-shadow: 0 4px 12px rgba(255,101,132,0.5);
 }

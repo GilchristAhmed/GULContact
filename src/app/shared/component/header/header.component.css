@@ -1,0 +1,46 @@
+header{
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary);
+    color: white;
+
+    .deco{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 15%;
+      color: var(--secondary);
+    }
+    .Titre {
+      text-align: center; /* Centre le titre */
+      margin-bottom: 20px; /* Ajoute un espace en bas du titre */
+      justify-items: center;
+      padding-top: 25px;
+    }
+
+    .raw {
+      display: flex; /* Utilise Flexbox pour la mise en page */
+      justify-content: space-between; /* Espace entre les éléments */
+      align-items: center; /* Aligne verticalement les éléments au centre */
+    }
+
+    .md-6 {
+      flex: 0; /* Permet aux éléments de prendre une largeur égale */
+      margin: 5px;
+      float: left;
+    }
+
+    .left {
+      text-align: left; /* Aligne le texte à gauche */
+    }
+
+    .right {
+      text-align: right; /* Aligne le texte à droite */
+      nav{
+        float: left;
+        display: block;
+        margin-top: 5px;
+      }
+    }
+}
