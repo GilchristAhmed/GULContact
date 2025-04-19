@@ -1,0 +1,29 @@
+<div class="login-container">
+  <h2>Creer  Utilisateur</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <label for="email">username</label>
+    <input type="email" name="email" id="email" placeholder="Entrez votre email" formControlName="email">
+    <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="error">
+      Email invalide.
+    </div>
+
+    <label for="password">Mot de passe</label>
+    <input type="password" name="password" id="password" formControlName="password" placeholder="Entrez votre Mot de passe">
+    <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="error">
+      Le mot de passe doit contenir au moins 12 caractères.
+    </div>
+
+    <label for="photo">username</label>
+    <input type="photo" name="photo" id="photo" placeholder="entreez l'url de la photo" formControlName="photo">
+    <div *ngIf="registerForm.get('photo')?.invalid && registerForm.get('photo')?.touched" class="error">
+      photo invalide.
+    </div>
+
+    <button type="submit" [disabled]="registerForm.invalid"> Se connecter</button>
+
+    <p *ngIf="errorMessage" class="error-message">{{errorMessage}}</p>
+
+  </form>
+
+  <a (click)="toLog()" >Se connecter</a>
+</div>

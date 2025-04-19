@@ -4,13 +4,16 @@ import {DetailContactComponent} from './pages/detail-contact/detail-contact.comp
 import {LoginComponent} from './pages/login/login.component';
 import {FormcontactComponent} from './pages/formcontact/formcontact.component';
 import {authGuard} from './core/guard/auth.guard';
+import {RegisterComponent} from './pages/register/register.component';
 
 export const routes: Routes = [
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
   {path: 'dashboard', component: DashboardComponent, canActivate: [authGuard]},
   {path: 'detail/:id', component: DetailContactComponent,  canActivate: [authGuard]},
   {path: 'detail/:id/formcontact/:id', component: FormcontactComponent ,  canActivate: [authGuard]},
   { path: 'formcontact/:formcontactId', component: FormcontactComponent, canActivate: [authGuard]},
-  {path: 'login', component: LoginComponent},
-  {path: 'formcontact', component: FormcontactComponent, canActivate: [authGuard]},
-  { path: '', redirectTo: '/login', pathMatch: 'full' }
+  {path: 'formcontact', component: FormcontactComponent, canActivate: [authGuard]}
+
 ];

@@ -79,7 +79,7 @@ export class DashboardComponent implements OnInit {
 
    onSearch(searchTerm: string) {
        searchTerm = this.searchForm.value;
-      this.contactService.searchContacts(searchTerm,this.token).subscribe(
+      this.contactService.searchContacts(this.currentPage,searchTerm,this.token).subscribe(
         data => {
           console.log('Données récupérées:', data);
           this.contacts = data.data; // Mettez à jour cette ligne pour que les contacts affichés soient ceux de la page actuelle

@@ -53,4 +53,18 @@ export class AuthService {
     console.error("Erreur de connexion", error);
     return throwError(() => error);
   }
+
+  register(email: string, password: string, photo: string) {
+    const lurl = "https://www.api.4gul.kanemia.com";
+    return this.http.post<AuthResponse>(`${this.apiUrl}/users`, { email, password,photo }) // Utiliser email et password
+      .pipe(
+        tap((response: AuthResponse) => { // Utiliser l'interface AuthResponse
+          console.log("Réponse API: ", response);
+          console.log("Enregistrement réussie");
+
+        }),
+        catchError(this.handleError) // Gestion des erreurs
+      );
+
+  }
 }
